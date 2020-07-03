@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Make and enter a temporary directory.
+cd $(mktemp -d)
+
+# Write stdin to a file.
+cat /dev/stdin > source.pu
+
+# Run and send command to stdout.
+java -jar /plantuml.jar -tpng source.pu
+cat source.png
